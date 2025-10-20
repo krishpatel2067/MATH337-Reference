@@ -1,0 +1,28 @@
+\section{Lesson 12}
+\subsection{Memory Items}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+\subsection{Other Remarks}
+\begin{enumerate}
+    \item Eigenvector $\textbf{x}\neq\textbf{0}\in\mathbb{R}^2$, eigenvalue $\lambda$: $A\textbf{x}=\lambda\textbf{x}$
+    \item Characteristic polynomial of $A$: $p_A(\lambda)=\det{(A-\lambda I)}$
+    \item Since $\textbf{x}\neq\textbf{0}$, it must be true that $\det{(A-\lambda I)}=0$, which solve.
+    \item For 2x2 matrices: $p_A(\lambda)=\lambda^2-\text{tr}(A)\lambda+\det{(A)}$
+    \item Set of all eigenvalues are the \textbf{spectrum} of a matrix: $\delta(A)=\{3, 2\}$ for some 2x2 matrix $A$
+    \item \textbf{Cayley-Hamilton Theorem}: Every square matrix satisfies its characteristic equation.
+    \item \textbf{Diagonalization}: another way to factor matrices
+    \begin{enumerate}
+        \item $A=SDS^{-1}$
+        \item $A^p=SD^pS^{-1}$
+        \item Same form as eigenvectors and values: $A\textbf{v}_\ell=d_\ell\textbf{v}_\ell$
+        \item The columns of $S$ are the eigenvectors of $A$ (which are $\textbf{v}_\ell$). 
+        \item First, find $\sigma(A)$, then for each eigenvalue, find the basic solutions.
+        \item Each basic solution $\textbf{v}_\ell$ is a column of $S$.
+        \item Any constant multiples of $\textbf{v}_1$ and $\textbf{v}_2$ in $S$ can work.
+        \item If we get fewer basic solutions than the number of columns required, then the original matrix is cannot be diagonazlized (it is \textbf{defective}).
+        \item For eigenvalues that are complex conjugates, the eigenvectors are also complex conjugates (shortcut).
+        \item Check your work by ensuring that all rows of $A-\lambda I$ (for each $\lambda$) are constant multiples of each other.
+    \end{enumerate}
+\end{enumerate}
