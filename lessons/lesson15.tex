@@ -2,10 +2,17 @@
 
 \subsection{Memory Items}
 \begin{enumerate}
-    \item
+    \item The column space of $A$ is the set of all vectors of the form $A{\textbf x}$.
+    \item The null space of $A$ is the set of all vectors satisfying $A{\textbf x}={\textbf 0}$.
+    \item The row space and the left null space are the orthogonal complements of the null space and the column space respectively.
+    \item The CR factorization displays bases for the column space and row space.
+    \item Eigenvectors are either in the column space or the null space.    
 \end{enumerate}
 
 \subsection{Other Remarks}
 \begin{enumerate}
-    \item
+    \item $\text{row}(A)= \text{col}(A^T)$
+    \item A zero matrix is the only exception: the row and column spaces will not equal the basis due to the zero vector being present. Otherwise, row reduction ensures linearly dependent vectors for all other cases. TODO
+    \item Domain (size n): nul and row TODO
+    \item Codomain (size m): left null and col TODO
 \end{enumerate}
