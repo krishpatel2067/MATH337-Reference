@@ -1,28 +1,40 @@
 \section{Lesson 12}
 \subsection{Memory Items}
 \begin{enumerate}
-    \item 
+    \item An eigenvector $\textbf{v}$ of a square matrix $A$ with its eigenvalue $\lambda$ satisfies $A{\textbf v} = \lambda {\textbf v}$.
+    \item All the eigenvalues of a square matrix satisfy the characteristic equation $|A-\lambda I|=0$.
+    \item The spectrum of an $n\times n$ matrix $A$ has from 1 to $n$ elements.
+    \item The sum of the multiplicities of the eigenvalues of an $n\times n$ matrix $A$ is always $n$.
+    \item The trace equals the sum of the eigenvalues, and the determinant equals the product of the eigenvalues.
+    \item Distinct eigenvalues guarantee diagonalizability but not conversely.
 \end{enumerate}
 
 \subsection{Other Remarks}
 \begin{enumerate}
-    \item Eigenvector $\textbf{x}\neq\textbf{0}\in\mathbb{R}^2$, eigenvalue $\lambda$: $A\textbf{x}=\lambda\textbf{x}$
-    \item Characteristic polynomial of $A$: $p_A(\lambda)=\det{(A-\lambda I)}$
-    \item Since $\textbf{x}\neq\textbf{0}$, it must be true that $\det{(A-\lambda I)}=0$, which solve.
-    \item For 2x2 matrices: $p_A(\lambda)=\lambda^2-\text{tr}(A)\lambda+\det{(A)}$
-    \item Set of all eigenvalues are the \textbf{spectrum} of a matrix: $\delta(A)=\{3, 2\}$ for some 2x2 matrix $A$
-    \item \textbf{Cayley-Hamilton Theorem}: Every square matrix satisfies its characteristic equation.
-    \item \textbf{Diagonalization}: another way to factor matrices
+    \item An eigenvector must not be the zero vector.
+    \item The characteristic polynomial for 2x2 matrices is $p_A(\lambda)=\lambda^2-\text{tr}(A)\lambda+\det{(A)}$.
+    \item The set of all eigenvalues of a matrix $A$ are the \textbf{spectrum}, denoted by $\sigma (A)$.
+    \item The multiplicity of an eigenvalue $\lambda_\ell$ is often denoted by $\mu_\ell$.
+    \item Eigenvalues with $\mu_\ell=1$ are \textbf {distinct}, while those with $\mu_\ell > 1$ are \textbf {repeated}.
+    \item \textbf{Cayley-Hamilton Theorem}: Every square matrix satisfies its characteristic equation, and $A^n$ is a linear combination of its lower powers $A^{n-1},A^{n-2},\dots,A^2,A^1,A^0$.
+    \item An $n\times n$ matrix $B$ is a \textbf{similarity transformation} of an $n\times n$ matrix $M$ iff there exists a nonsingular $n\times n$ matrix $S$ such that $B=SMS^{-1}$.
+    \item The \textbf{diagonalization} of a matrix $A$ is a similary transformation of a diagonal matrix $D$: $A=SDS^{-1}$
     \begin{enumerate}
-        \item $A=SDS^{-1}$
-        \item $A^p=SD^pS^{-1}$
-        \item Same form as eigenvectors and values: $A\textbf{v}_\ell=d_\ell\textbf{v}_\ell$
-        \item The columns of $S$ are the eigenvectors of $A$ (which are $\textbf{v}_\ell$). 
-        \item First, find $\sigma(A)$, then for each eigenvalue, find the basic solutions.
-        \item Each basic solution $\textbf{v}_\ell$ is a column of $S$.
-        \item Any constant multiples of $\textbf{v}_1$ and $\textbf{v}_2$ in $S$ can work.
-        \item If we get fewer basic solutions than the number of columns required, then the original matrix is cannot be diagonazlized (it is \textbf{defective}).
-        \item For eigenvalues that are complex conjugates, the eigenvectors are also complex conjugates (shortcut).
-        \item Check your work by ensuring that all rows of $A-\lambda I$ (for each $\lambda$) are constant multiples of each other.
+        \item This is useful because computing powers of a matrix is given by $A^p=SD^pS^{-1}$, and computing the powers of a diagonal matrix is much easier.
+    \end{enumerate}
+    \item The matrix $D$ contains the eigenvalues of a matrix $A$ in any order along the diagonal. The matrix $S$ contains the eigenvectors for each corresponding eigenvalue in $D$ in the same order.
+    \item Find the eigenvectors of each eigenvalue by finding the basic solutions of $(A-\lambda_\ell I){\textbf v}=0$ for $\ell=1,2,\dots,n$.
+    \item A basic solution is guaranteed to exist for the homogeneous system for each $\ell$.
+    \item An eigenvector remains an eigenvector when multiplied by any non-zero constant.
+    \item A matrix $A$ is \textbf{defective} if it is not diagonalizable. This is often when the number of basic solutions for an eigenvalue is less than the multiplicity (when $\mu_\ell > 1$).
+    \item For a $2\times 2$ matrix with a repeated eigenvalue to be diagonalizable, it must be a multiple of $I_2$.
+    \item When $A-\lambda_1 I$ has only one free variable, it is obviously not the zero matrix.   Nonetheless, $(A-\lambda_1 I)^2$ will be the zero matrix.
+    \item Shortcut to finding eigenvectors for $2\times 2$ diagonalization:
+    
+    $A-\lambda I = \left[\begin {matrix} u&v \\ w&y\end{matrix}\right] \Rightarrow (A-\lambda I){\textbf x}={\textbf 0}$ when ${\textbf x}=\left[\begin{matrix}-v \\ u\end{matrix}\right]$ or ${\textbf x}=\left[\begin{matrix}-w \\ y\end{matrix}\right]$
+    \begin{enumerate}
+        \item If one of the vectors is zero, we must choose the non-zero vector.
+        \item If both are zero, then the matrix is the zero matrix, and so, every non-zero vector is an eigenvector.
+        \item Remember that complex solutions come in conjugates, so the other eigenvector is simply the complex conjugate of the first one.
     \end{enumerate}
 \end{enumerate}
