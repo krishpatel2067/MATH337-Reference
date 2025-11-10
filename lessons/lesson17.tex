@@ -7,4 +7,9 @@
         \item For orthonormal bases, $A^T A$ reduces to $I$, so the above simplifies to $P = AA^T$.
     \end{enumerate}
     \item The complementary matrix $Q=I-P$ is also an orthogonal projection matrix.
+    \item Normal solutions: $A^T A \textbf{x} = A^T \textbf{y}$
+    \begin{enumerate}
+        \item If the original system had solutions, the solution to the above will match.
+        \item If the original system had no solutions, this is guaranteed to yield a solution, specifically minimizing $||{\textbf b}-A{\textbf x}||$.
+    \end{enumerate}
 \end{enumerate}
