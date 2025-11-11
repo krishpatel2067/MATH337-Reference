@@ -12,12 +12,21 @@
 
 \subsection{Other Remarks}
 \begin{enumerate}
-    \item Orthonormal sets are linearly independent.
-    \item Eigenvectors are linearly independent.
-    \item Immediately linearly dependent if the set
-    \begin{enumerate}
-        \item contains $\textbf{0}$.
-        \item contains more vectors than the number of rows.
+    \item Vector spaces must contain the zero vector as a consequence of their definition.
+    \item The \textbf{span} is all linear combinations of elements of the set. A special case is $\text{Span}(\emptyset)=\{{\textbf 0}\}$ to ensure that all spans are vector spaces.
+    \item Given a subspace $V \subset \mathbb{R}^2 $, \textbf{a spanning set} $S$ for $V$ is a set with the property $\text{Span}(S) = V$.
+    \item The \textbf{trivial subspace} is simply $\{\textbf{0}\}$.
+    \item Subspaces are closed under intersection.
+    \item The only linear combination of indepedent vectors that leads to the zero vector is one in which all the coefficients are 0 (trivial).
+    \item A set of vectors is linearly dependent if:
+    \begin{enumerate} 
+        \item it contains $\textbf{0}$.
+        \item it contains more vectors than the number of components in each vector.
+        \item lacks at least one pivot when put into a matrix and converted to rref.
     \end{enumerate}
-    \item There are numerous basis vectors for every subspace.
+    \item Orthonormal sets are linearly independent.
+    \item An $n\times n$ matrix is diagonalizable iff there is a collection of $n$ linearly independent eigenvectors of the matrix.
+    \item The eigenvectors for unique eigenvalues are linearly independent.
+    \item A basis for a subspace $V$ is a linearly indepedent spanning set. 
+    \item There are numerous bases for every subspace, but all of them must contain the same number of vectors (have the same \textbf{dimension}).
 \end{enumerate}
