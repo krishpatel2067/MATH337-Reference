@@ -9,6 +9,12 @@
 \begin{document}
 \maketitle
 
+\newenvironment{amatrix}[1]{%
+    \begin{array}{@{}*{#1}{c}|c@{}}
+        }{%
+    \end{array}
+}
+
 \input{lessons/lesson1}
 \input{lessons/lesson2}
 \input{lessons/lesson3}

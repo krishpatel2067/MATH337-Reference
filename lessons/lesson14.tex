@@ -20,8 +20,8 @@
     \item A basis for a vector space $U=\text{span}(\cal{A})$ is the set of pivot columns of a matrix $A$ formed by the vectors in $\cal{A}$, found through (the forward phase of) Gauss-Jordan elimination.
     \item \textbf{Inclusion}: If ${\cal A} =\{{\textbf a}_1,\dots,{\textbf a}_k\}$,  ${\cal B}=\{{\textbf b}_1,\dots,{\textbf b}_m\}$, $A=\left[\begin{matrix}\textbf{a}_1 & \cdots \textbf{a}_k \end{matrix}\right]$, and $B=\left[\begin{matrix}\textbf{b}_1 & \cdots \textbf{b}_k \end{matrix}\right]$, 
     \begin{enumerate}
-        \item $\text{col}\,B \subset \text{col}\,A$ (equivalently $\text{span}(\cal{B}) \subset \text{span}(\cal{A})$) iff $\text{pref}[\begin{matrix}A & B\end{matrix}]$ has no pivots in the columns at the positions occupied by $B$.
-        \item $\text{col}\,A = \text{col}\,B$ (equivalently \text{span}({\cal A})= \text{span}({\cal B})) iff $\text{col}\,A \subset \text{col}\,B$ and $\text{col}\,B \subset \text{col}\,A$.
+        \item $\text{col}\,B \subset \text{col}\,A$ (equivalently $\text{span}(\cal{B}) \subset \text{span}(\cal{A})$) iff $\text{pref}[\begin{amatrix}{1}A & B\end{amatrix}]$ has no pivots in the columns at the positions occupied by $B$.
+        \item $\text{col}\,A = \text{col}\,B$ (equivalently \text{span}({\cal A}) = \text{span}({\cal B})) iff $\text{col}\,A \subset \text{col}\,B$ and $\text{col}\,B \subset \text{col}\,A$.
     \end{enumerate}
     \item \textbf{Basis for intersection}: If $\mathbf{v}\in U\cap V$ then there are vectors $\mathbf{\alpha}\in \mathbb{F}^k$ and $\mathbf{\beta} \in \mathbb{F}^\ell$ such that
     \begin{align*}
@@ -38,4 +38,8 @@
 
     \item \textbf{Basis for sum}: A spanning set for the sum of two vector spaces $U + V$ is the union of their corresponding spanning sets $\cal{A}\cup \cal{B}$, and a basis is given from the set of pivot columns of the matrix whose columns are the vectors in $\cal{A}\cup \cal{B}$.
     \item $\text{dim}(U+V)~=~ \text{dim}(U)~+~\text{dim}(V)~-~\text{dim}(U\cap V)$
+    \item (Follow Up Problem 14.8) For two subspaces $U$ and $V$,
+    \begin{align*}
+            U\cap V = U + V\qquad\Leftrightarrow\qquad U = V
+    \end{align*}
 \end{enumerate}
