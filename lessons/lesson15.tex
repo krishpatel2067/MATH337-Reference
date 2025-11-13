@@ -2,17 +2,112 @@
 
 \subsection{Memory Items}
 \begin{enumerate}
-    \item The column space of $A$ is the set of all vectors of the form $A{\textbf x}$.
-    \item The null space of $A$ is the set of all vectors satisfying $A{\textbf x}={\textbf 0}$.
-    \item The row space and the left null space are the orthogonal complements of the null space and the column space respectively.
+    \item The column space of $A$ is the set of all vectors of the form $A\mathbf{x}$.
+    \item The null space of $A$ is the set of all vectors satisfying $A\mathbf{x}=\mathbf{0}$.
+    \item The row space and the left null space are the orthogonal complements of the null space and the column space, respectively.
     \item The CR factorization displays bases for the column space and row space.
-    \item Eigenvectors are either in the column space or the null space.    
+    \item Eigenvectors are either in the column space or the null space.
 \end{enumerate}
 
+\subsection{Table of Fundamental Subspaces}
+\begin{align*}
+    \begin{matrix}
+        \underline{\text{Space}} &  & \underline{\text{Notation}} &  & \underline{\text{Standard Basis}}                                                                          &  & \underline{\text{Dimension}} &  & \underline{\subset} \cr\cr
+        \text{null}              &  & \text{nul}(A)               &  & \begin{matrix}\text{basic solutions} \cr\ \text{of}~A{\bf x}={\bf 0}\end{matrix}                           &  & n-r                          &  & \mathbb{R}^n \cr\cr
+        \text{column}            &  & \text{col}(A)               &  & \begin{matrix}\text{pivot columns} \cr\ \text{of}~A\end{matrix}                                            &  & r                            &  & \mathbb{R}^m\cr\cr
+        \text{row}               &  & \text{row}(A)               &  & \begin{matrix}\text{nonzero rows} \cr\ \text{of rref}(A)\end{matrix}                                       &  & r                            &  & \mathbb{R}^n \cr\cr
+        \text{left null}         &  & \text{nul}(A^T)             &  & \begin{matrix}\text{last}~m-r~\text{rows of}~W\cr\text{rref}\big([A~I]\big)=[\text{rref}(A)~W]\end{matrix} &  & m-r                          &  & \mathbb{R}^m\end{matrix}
+\end{align*}
+
 \subsection{Other Remarks}
+
+\begin{itemize}
+    \item Assume an $m\times n$ matrix.
+    \item $\nu$ represents nullity.
+    \item $r$ represents rank.
+\end{itemize}
+
 \begin{enumerate}
-    \item $\text{row}(A)= \text{col}(A^T)$
-    \item A zero matrix is the only exception: the row and column spaces will not equal the basis due to the zero vector being present. Otherwise, row reduction ensures linearly dependent vectors for all other cases. TODO
-    \item Domain (size n): nul and row TODO
-    \item Codomain (size m): left null and col TODO
+    \item A linear system like $A\mathbf{x}=\mathbf{0}$ is an \emph{implicit} representation of a vector space, whereas a spanning set is an \emph{explicit} representation.
+    \item \textbf{Null space}:
+          \begin{enumerate}
+              \item $\text{nul}(A)\in \mathbb{R}^n$ (domain)
+              \item $\text{dim}(\text{nul}(A)) = \nu$
+              \item A basis for $\text{nul}(A)$ is the set of all basic solutions of $A\mathbf{x}=\mathbf{0}$.
+          \end{enumerate}
+    \item \textbf{Column space}:
+          \begin{enumerate}
+              \item $\text{col}(A)\in \mathbb{R}^m$ (codomain)
+              \item $\text{dim}(\text{col}(A)) = r$
+              \item A basis for $\text{col}(A)$ is the set of all pivot columns.
+          \end{enumerate}
+    \item \textbf{Row space}:
+          \begin{enumerate}
+              \item $\text{row}(A) = \text{col}(A^T)$
+              \item $\text{row}(A)\in \mathbb{R}^n$ (domain)
+              \item $\text{dim}(\text{row}(A)) = r$
+              \item A basis for $\text{row}(A)$ is the set of all non-zero rows in $\text{rref}(A)$.
+          \end{enumerate}
+    \item \textbf{Left null space}:
+          \begin{enumerate}
+              \item $\text{nul}(A^T)$
+              \item $\text{nul}(A^T)\in \mathbb{R}^m$ (codomain)
+              \item $\text{dim}(\text{nul}(A^T)) = m-r$
+              \item After performing Gauss-Jordan elimination,
+                    \begin{align*}
+                        \text{rref}[\begin{amatrix}{1}A & I\end{amatrix}] = [\begin{amatrix}{1}\text{rref}(A) & W\end{amatrix}]\text{,}
+                    \end{align*}
+                    a basis for $\text{nul}(A^T)$ is the set of all the rows in $W$ next to rows of zeros in $\text{rref}(A)$.
+          \end{enumerate}
+    \item Linear mapping: $T_A:\mathbb{R}^n\to\mathbb{R}^m$
+    \item $A{\bf x}={\bf b}~\text{has at least one solution}\quad\Leftrightarrow\quad {\bf b}\in\text{col}(A)$
+    \item $A{\bf x}_1={\bf b} \quad\text{and}\quad A{\bf x}_2={\bf b} \qquad\Rightarrow\qquad {\bf x}_1-{\bf x}_2\in\text{nul}(A)$
+    \item The smaller the null space, the less ambiguity there is, with $\{\mathbf{0}\}$ representing no ambiguity (unique solutions).
+    \item The action of an $m\times n$ matrix defines a one-to-one correspondence between its row space and its column space.
+    \item \textbf{Orthogonal Complements}:
+          \begin{enumerate}
+              \item The set of vectors orthogonal to a vector space $U$ is called the \textbf{orthogonal complement} $U^\perp$.
+                    \begin{align*}
+                        U^\perp = \{ {\mathbf x}~:~{\mathbf x}\cdot{\mathbf u}=0~\text{for all} ~{\mathbf u}\in U\}
+                    \end{align*}
+              \item $U^\perp$ is a subspace.
+              \item $(U^\perp)^\perp=U$
+              \item $U\subset V\quad\Leftrightarrow\quad V^\perp\subset U^\perp$
+              \item $\text{nul}(A)$ and $\text{row}(A)$ (in the domain) are orthogonal complements.
+              \item $\text{nul}(A^T)$ and $\text{col}(A)$ (in the codomain) are orthogonal complements.
+          \end{enumerate}
+    \item The fundamental subspaces of an invertible $m\times n$ matrix $A$:
+          \begin{align*}
+              \text{nul}(A)   & =\{{\bf 0}\},   \\
+              \text{col}(A)   & ={\mathbb R}^n, \\
+              \text{row}(A)   & ={\mathbb R}^n, \\
+              \text{nul}(A^T) & =\{{\bf 0}\}
+          \end{align*}
+    \item Given two matrices $A$ and $B$, it is always possible to find a matrix $M$, where $\text{col}(M) = \text{col}(A)$ and $\text{row}(M) = \text{col}(B) = \text{row}(B^T)$:
+          \begin{align*}
+              M=AXB^T,\qquad X\in\text{GL}_r
+          \end{align*}
+    \item When $\text{col}(A)\subset\text{nul}(A)$
+          \begin{align*}
+              A^2=A\left[\begin{matrix}{\mathbf a}_1 & \cdots & {\mathbf a}_n\end{matrix}\right]=\left[\begin{matrix}A{\mathbf a}_1 & \cdots & A{\mathbf a}_n\end{matrix}\right]=\left[\begin{matrix}{\mathbf 0} & \cdots & {\mathbf 0}\end{matrix}\right].
+          \end{align*}
+          That is, $A$ is the square root of the zero matrix.
+    \item In CR factorization $A = CR$,
+          \begin{align*}
+              \text{col}(A)=\text{col}(C)\qquad & \text{and}\qquad\text{row}(A)=\text{row}(R)\text{,}
+          \end{align*}
+          and thus,
+          \begin{align*}
+              \text{nul}(A^T)=\text{nul}(C^T)\qquad & \text{and}\qquad\text{nul}(A)=\text{nul}(R)\text{.}
+          \end{align*}
+    \item For the multiplication of matrices $B$ and $C$, 
+    \begin{align*}
+        \text{rank}(BC)\le\text{min}\big(\text{rank}(B),\text{rank}(C)\big)\text{.}
+    \end{align*}
+    \item Given an eigenvector $\mathbf{v}$ of $A$ with eigenvalue $\lambda$, $A{\mathbf x}=\lambda{\mathbf x}$,
+    \begin{align*}
+        \lambda=0 &\Rightarrow {\mathbf x}\in\text{nul}(A) \\
+        \lambda\ne0 &\Rightarrow {\mathbf x}\in\text{col}(A)
+    \end{align*}
+    Thus, every eigenvector of $A$ is in the column space of $A$, in the null space of $A$, or possibly both.
 \end{enumerate}
