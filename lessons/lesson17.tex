@@ -1,15 +1,77 @@
 \section{Lesson 17}
 
-\subsection{Memory Items (Informal)}
+\subsection{Notes}
 \begin{enumerate}
-    \item Orthogonal projection matrix: $P~=~A(A^TA)^{-1}A^T$
-    \begin{enumerate}
-        \item For orthonormal bases, $A^T A$ reduces to $I$, so the above simplifies to $P = AA^T$.
-    \end{enumerate}
-    \item The complementary matrix $Q=I-P$ is also an orthogonal projection matrix.
-    \item Normal solutions: $A^T A \textbf{x} = A^T \textbf{y}$
-    \begin{enumerate}
-        \item If the original system had solutions, the solution to the above will match.
-        \item If the original system had no solutions, this is guaranteed to yield a solution, specifically minimizing $||{\textbf b}-A{\textbf x}||$.
-    \end{enumerate}
+    \item An orthogonal projection matrix $P$ projects a vector $\mathbf{x}$ from a vector space to a subspace $V$, resulting in $\mathbf{p}$.
+          \begin{align*}
+              \mathbf{p} = P\mathbf{x}
+          \end{align*}
+          It essentially finds a point in $V$ closest to the point in the original vector space.
+    \item $P$ is both a projection matrix and symmetric.
+          \begin{align*}
+              P^2 & = P = P^T
+          \end{align*}
+    \item If $\mathbf{x}\in V$ already, then the closest point it $\mathbf{x}$ itself, so
+          \begin{align*}
+              \mathbf{x}    & = P\mathbf{x}\text{,}    \\
+              \text{col}(P) & =\text{col}(A)=V\text{,} \\
+              \text{col}(P) & =\text{row}(P)\text{.}
+          \end{align*}
+          The last point is because $P^T = P$.
+    \item The orthogonal projection matrix $P$ is given by forming a matrix $A$ whose columns are the basis of a vector space and using the equation
+          \begin{align*}
+              P~=~A(A^TA)^{-1}A^T\text{.}
+          \end{align*}
+    \item For orthonormal bases, $A^T A$ reduces to $I$, so the original equation simplifies to
+          \begin{align*}
+              P = AA^T\text{,}
+          \end{align*}
+          which is also the sum of the outer products of the columns
+          \begin{align*}
+              P = \mathbf{a}_1\otimes\mathbf{a}_1+\cdots+\mathbf{a}_k\otimes\mathbf{a}_k\text{.}
+          \end{align*}
+    \item The complementary matrix $Q=I-P$ is also an orthogonal projection matrix:
+          \begin{align*}
+              Q^2 & = Q = Q^T
+          \end{align*}
+    \item Relation of subspaces of $P$ and $Q$:
+          \begin{align*}
+              V       & =\text{col}(P)=\text{nul}(Q)       \\
+              V^\perp & =\text{col}(P)^\perp=\text{col}(Q)
+          \end{align*}
+          Notice that $\text{nul}(Q)^\perp = \text{col}(Q) = \text{row}(Q)$ because Q is symmetric.
+    \item $P$ and $Q$ decompose a vector $\mathbf{x}$ into orthogonal components $\mathbf{p}\in P$ and $\mathbf{q}\in Q$:
+          \begin{align*}
+               & \mathbf{x} = \mathbf{p} + \mathbf{q} \\
+               & \mathbf{p}\cdot \mathbf{q} = 0       \\
+          \end{align*}
+    \item A linear system $A\mathbf{x}=\mathbf{b}$ may not have a solution if $\mathbf{b}\notin\text{col}(A)$, which is more often the case for linear data collected in real life.
+    \item Thus, least-squares solutions aim to minimize $\|A\mathbf{x} - \mathbf{b}\|$, satisfying $A\mathbf{x}=\hat{\mathbf{b}}$, where $\hat{\mathbf{b}}$ is an orthogonal projection of $\mathbf{b}$ onto $\text{col}(A)$.
+    \item The \textbf{normal solutions} for least-squares solutions:
+          \begin{align*}
+              A^T A \mathbf{x} = A^T \mathbf{b}
+          \end{align*}
+          \begin{enumerate}
+              \item If the original system had solutions, the the normal equations have the same solutions.
+              \item If the original system had no solutions, this is guaranteed to yield a solution, specifically minimizing $\|A\mathbf{x} - \mathbf{b}\|$.
+          \end{enumerate}
+    \item When given a set of points $\{(x_1, y_1), \dots, (x_N, y_N)\}$, the linear system fitting the model $y=\alpha x + \beta$ is
+          \begin{align*}
+              \left[\begin{matrix}
+                            x_1 & 1\cr x_2 & 1 \cr \vdots & \vdots \cr x_N & 1
+                        \end{matrix}
+                  \right]
+              \left[
+                  \begin{matrix}
+                      \alpha \cr\beta
+                  \end{matrix}\right]
+              =
+              \left[
+                  \begin{matrix}
+                      y_1\cr y_2\cr \vdots\cr y_N
+                  \end{matrix}
+                  \right],
+          \end{align*}
+    from which the normal solutions can be found and solved for. If fitting a quadratic model $y=\alpha x^2 + \beta x + \gamma$, simply add a column to the left matrix, making sure to square the $x$ values.
+    \item The gram matrix of a matrix with independent columns is invertible.
 \end{enumerate}
