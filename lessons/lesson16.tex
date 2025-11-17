@@ -1,9 +1,35 @@
 \section{Lesson 16}
 
-\subsection{Memory Items (Informal)}
+\subsection{Notes}
 \begin{enumerate}
     \item If a matrix is triangular, all its eigenvalues are on the main diagonal.
     \item A matrix is defective if it doesn't have as many free variables as the multiplicity of the eigenvalue. (Refer to \textbf{Example 16.6})
-    \item Review the rational roots theorem: $\frac{\pm\,\text{factorsof leading term}}{\pm\,\text{factors of constant}}$
-    \item TODO
+    \item The characteristic polynomial of a $3\times 3$ matrix is given by
+          \begin{equation*}
+              \begin{aligned}
+                  p_A(\lambda) & = -\lambda^3                                                                        \\
+                               & + \text{tr}(A)\lambda^2                                                             \\
+                               & - \left(\left|\begin{matrix}A_{11} & A_{12} \cr A_{21} & A_{22}\end{matrix}\right|+
+                  \left|\begin{matrix}A_{11} & A_{13} \cr A_{31} & A_{33}\end{matrix}\right|+
+                  \left|\begin{matrix}A_{22} & A_{23} \cr A_{32} & A_{33}\end{matrix}\right|\right)\lambda           \\
+                               & + \det(A)
+              \end{aligned}
+          \end{equation*}
+    Notice that the signs alternate, beginning with minus for odd degrees like 3. The cofficient of the $\lambda$ term is the negative of the trace of the minor matrix.
+    \item To find the roots of a characteristic equation:
+    \begin{enumerate}
+        \item Use the rational roots theorem to generate candidate roots:
+        \begin{align*}
+            \frac{\pm\,\text{factors of the constant}}{\pm\,\text{factors of the leading term}}            
+        \end{align*}
+        \item Try each candidate until one root is found.
+        \item Divide the polynomial by this root (preferably using synthetic division).
+        \item For a cubic polynomial, this yields a linear factor and a quadratic that can be easily solved. Otherwise, repeat until there are various linear roots and a quadratic.
+    \end{enumerate}
+    \item Shortcuts when computing eigenvectors of a $3\times 3$ matrix $A$:
+    \begin{enumerate}
+        \item When a row that is a linear combination of the others is replaced by a row of zeros, the rref is unchanged and hence the null space is unchanged.
+        \item The eigenvector can be found via the cross product method: the $i^{\text{th}}$ element of the eigenvector is found from the determinant of the minor created by crossing the 3rd row and $i^\text{th}$ column of $A$; the result is multiplied by the cofactor, which starts as positive 1 and alternates its sign for each element.
+    \end{enumerate}
+    \item Recall that $A = SDS^{-1}$.
 \end{enumerate}
