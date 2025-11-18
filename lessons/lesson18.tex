@@ -52,39 +52,58 @@
               3 & : \text{hange of coordinates to the standard basis}     \\
               4 & : \text{action of A with respect to the standard basis}
           \end{align*}
-        \item Two matrices $A_1$ and $A_2$ are \textbf{simultaneously diagonalizable} if
-        \begin{align*}
-            A_1 &= SD_1S^{-1}\text{,} \\
-            A_2 &= SD_2S^{-1}\text{.}
-        \end{align*}
-        That is, both matrices have the same eigenvectors but not necessarily the same eigenvalues.
-        \item Simultaneously diagonalizable matrices commute.
-        \item An \textbf{eigenspace} associated with the matrix $A$ is denoted by
-        \begin{align*}
-            E_\lambda(A)=\text{nul}(A-\lambda I)\text{.}
-        \end{align*}
-        \begin{enumerate}
-            \item Every eigenvector of $A$ with eigenvalue $\lambda$ is in $E_\lambda(A)$.
-            \item Every nonzero vector in $E_\lambda(A)$ is an eigenvector of $A$ with eigenvalue $\lambda$.
-            \item The intersection of eigenspaces corresponding to different eigenvalues is the trivial subspace.
-            \item If $A$ is a diagonalizable matrix, then the direct sum of its eigenspaces is $\mathbb{R}^n$.
-        \end{enumerate}
-        \item (Follow Up Problem 18.10) Two diagonalizations of the same matrix must share the same eigenvalues and eigenspaces, but there is substantial freedom in choosing the eigenbasis. That is, for an $n\times n$ matrix $A$, there are $n$ matrices possible for $D$ (changing the order of the eigenvalues) but many more possible matrices $S$ (as long as $\text{col}(S)=E_\lambda(A)$), such that $A=SDS^{-1}$.
-        \item (Follow Up Problem 18.14) When the multiplicity of an eigenvalue is 2 or more, the square root of the diagonal matrix need not be diagonal, e.g.
-        \begin{align*}
-            \left[\begin{matrix}
-                0 & 1 \\
-                1 & 0
-            \end{matrix}\right]
-            \left[\begin{matrix}
-                0 & 1 \\
-                1 & 0
-            \end{matrix}\right]
-            =
-            \left[\begin{matrix}
-                1 & 0 \\
-                0 & 1
-            \end{matrix}\right]
-        \end{align*}
+    \item Two matrices $A_1$ and $A_2$ are \textbf{simultaneously diagonalizable} if
+          \begin{align*}
+              A_1 & = SD_1S^{-1}\text{,} \\
+              A_2 & = SD_2S^{-1}\text{.}
+          \end{align*}
+          That is, both matrices have the same eigenvectors but not necessarily the same eigenvalues.
+    \item Simultaneously diagonalizable matrices commute.
+    \item An \textbf{eigenspace} associated with the matrix $A$ is denoted by
+          \begin{align*}
+              E_\lambda(A)=\text{nul}(A-\lambda I)\text{.}
+          \end{align*}
+          \begin{enumerate}
+              \item Every eigenvector of $A$ with eigenvalue $\lambda$ is in $E_\lambda(A)$.
+              \item Every nonzero vector in $E_\lambda(A)$ is an eigenvector of $A$ with eigenvalue $\lambda$.
+              \item The intersection of eigenspaces corresponding to different eigenvalues is the trivial subspace.
+              \item If $A$ is a diagonalizable matrix, then the direct sum of its eigenspaces is $\mathbb{R}^n$.
+          \end{enumerate}
+    \item (Follow Up Problem 18.10) Two diagonalizations of the same matrix must share the same eigenvalues and eigenspaces, but there is substantial freedom in choosing the eigenbasis. That is, for an $n\times n$ matrix $A$, there are $n$ matrices possible for $D$ (changing the order of the eigenvalues) but many more possible matrices $S$ (as long as $\text{col}(S)=E_\lambda(A)$), such that $A=SDS^{-1}$.
+    \item (Follow Up Problem 18.14) When the multiplicity of an eigenvalue is 2 or more, the square root of the diagonal matrix need not be diagonal, e.g.
+          \begin{align*}
+              \left[\begin{matrix}
+                            0 & 1 \\
+                            1 & 0
+                        \end{matrix}\right]
+              \left[\begin{matrix}
+                            0 & 1 \\
+                            1 & 0
+                        \end{matrix}\right]
+              =
+              \left[\begin{matrix}
+                            1 & 0 \\
+                            0 & 1
+                        \end{matrix}\right]
+          \end{align*}
+    \item (Follow Up Problems 19.1-19.3) \textbf{Spectral decomposition}:
+          \begin{align*}
+              A = SDS^{-1} & =
+              \left[\begin{matrix}
+                            \mathbf{v}_1 & \cdots & \mathbf{v}_n
+                        \end{matrix}\right]
+              \left[\begin{matrix}
+                            \lambda_1 &        &           \\
+                                      & \ddots &           \\
+                                      &        & \lambda_n
+                        \end{matrix}\right]
+              \left[\begin{matrix}
+                            \mathbf{u}^T_1 \\
+                            \vdots         \\
+                            \mathbf{u}^T_n
+                        \end{matrix}\right]                            \\
+                           & = \lambda_1\mathbf{v}_1\mathbf{u}^T_1 + \cdots + \lambda_n\mathbf{v}_n\mathbf{u}^T_n\text{,}
+          \end{align*}
+          where each $\mathbf{v}_\ell$ is a column from $S$, and each $\mathbf{u}^T_\ell$ is a row from $S^{-1}$. 
 
 \end{enumerate}

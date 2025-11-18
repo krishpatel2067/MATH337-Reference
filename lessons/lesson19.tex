@@ -2,6 +2,121 @@
 
 \subsection{Notes}
 \begin{enumerate}
+    \item \textbf{Discrete linear dynamics} refers to the sequences of vectors resulting from the repeated action of a square matrix.
+    \item Starting at $\mathbf{x}_0$, the general form is
+          \begin{align*}
+              \mathbf{x}_{\ell+1}=A\mathbf{x}_\ell\text{,}
+          \end{align*}
+          which can be written directly in terms of $\mathbf{x}_0$ as
+          \begin{align*}
+              \mathbf{x}_{\ell}=A^\ell\mathbf{x}_0\text{.}
+          \end{align*}
+          With diagonalization,
+          \begin{align*}
+              \mathbf{x}_\ell =
+              \left[\begin{matrix}
+                            {\bf v}_1 & {\bf v}_2 & \cdots & {\bf v}_n
+                        \end{matrix}\right]
+              \left[\begin{matrix}
+                            \lambda_1^\ell \\ & \lambda_2^\ell \\ & & \ddots  & \\ & & &\lambda_n^\ell
+                        \end{matrix}\right]
+              \left[\begin{matrix}
+                            {\bf v}_1 & {\bf v}_2 & \cdots & {\bf v}_n
+                        \end{matrix}\right]
+              ^{-1}{\bf x}_0
+              \text{.}
+          \end{align*}
+          Thus, the solution is a linear combination of eigenvectors with the eigenvalues raised to $\ell$.
+          \begin{align*}
+              \mathbf{x}_\ell= \lambda_1^\ell\mathbf{w}_1+\lambda_2^\ell\mathbf{w}_2+\cdots+\lambda_n^\ell\mathbf{w}_n \\
+              \text{,}
+          \end{align*}
+          where
+          \begin{align*}
+              \mathbf{w}_j = s_j\mathbf{v}_j
+              \quad
+              \text{and}
+              \quad
+              \left[\begin{matrix}
+                            s_1\cr s_2\cr \vdots\cr s_n
+                        \end{matrix}\right]
+              =
+              \left[\begin{matrix}
+                            {\bf v}_1 & {\bf v}_2 & \cdots & {\bf v}_n
+                        \end{matrix}\right]
+              ^{-1}{\bf x}_0\text{.}
+          \end{align*}
+    \item The spectrum of a matrix can give considerable insight into the behavior of the iterates:
+          \begin{enumerate}
+              \item \textbf{Decay to 0}: If all eigenvalues $|\lambda_j| < 1$, then as $\ell \rightarrow \infty$,
+                    \begin{align*}
+                        \lambda_j^\ell \rightarrow 0\quad\text{and so}\quad\mathbf{x}_\ell \rightarrow \mathbf{0}\text{.}
+                    \end{align*}
+              \item \textbf{Convergence to a general limit}: Suppose $\lambda_1 = 1$ and the other eigenvalues have magnitudes less than 1, then as $\ell \rightarrow \infty$,
+                    \begin{align*}
+                        \mathbf{x}_\ell \rightarrow \mathbf{w}_1\text{.}
+                    \end{align*}
+                    This can be generalized to when one or more eigenvectors are 1 while others have magnitudes less than 1.
+              \item \textbf{Divergence in an eigendirection}: Suppose $\lambda_1 > 1$ and the remaining eigenvalues have magnitudes less than 1, then as $\ell \rightarrow \infty$,
+                    \begin{align*}
+                        \mathbf{x}_\ell \approx \lambda_1^\ell\mathbf{w}_1
+                    \end{align*}
+                    because the solution is dominated by the term with the largest eigenvalue.
+              \item \textbf{Orbit about the origin}: Suppose $\lambda_\pm = e^{\pm i\theta}$, then the solution will obrit about the origin.
+          \end{enumerate}
+    \item \textbf{General second-order difference equation}:
+          \begin{align*}
+              y_{n+2} & =a y_{n+1}+by_n
+          \end{align*}
+          \begin{align*}
+              \left\{\begin{array}{lll}
+                         y_{n+2} & = & ay_{n+1} ~+~ by_n \\
+                         y_{n+1} & = & y_{n+1}
+                     \end{array}\right.
+          \end{align*}
+          \begin{align*}
+              \begin{array}{cccc}
+                  \left[\begin{matrix}
+                                y_{n+2}\cr y_{n+1}
+                            \end{matrix}\right]
+                   & =              &
+                  \left[\begin{matrix}
+                                a & b\cr1 & 0
+                            \end{matrix}\right]
+                   &
+                  \left[\begin{matrix}
+                                y_{n+1}\cr y_n
+                            \end{matrix}\right]
+                  \\
+                  \mathbf{x}_{n + 1}
+                   &                & A
+                   & \mathbf{x}_{n}
+              \end{array}
+          \end{align*}
+          \begin{align*}
+              \begin{array}{cccc}
+                  \left[\begin{matrix}
+                                y_{n+2}\cr y_{n+1}
+                            \end{matrix}\right]
+                   & = &
+                  \left[\begin{matrix}
+                                a & b\cr1 & 0
+                            \end{matrix}\right]^{n+1}
+                   &
+                  \mathbf{x}_{0}
+                  \\
+                  \mathbf{x}_{n + 1}
+                   &   & A^{n+1}
+                   &
+              \end{array}
+          \end{align*}
+          This can easily be generalized to higher order equations. The first row is always the the equation itself, and the subsequent rows are lower order terms equal to themselves to fulfill the square matrix requirement.
+    \item \textbf{Phase curves}: Curves traced by
+          \begin{align*}
+              \mathbf{x}_t~=~\lambda_1^t s_1\mathbf{v}_1~+~
+              \lambda_2^t s_2\mathbf{v}_2~+~\cdots~+~ \lambda_n^t s_n\mathbf{v}_n\text{,}
+          \end{align*}
+          where the discrete parameter $\ell$ has been replaced by the continuous parameter $t$.
     \item Matrix for Fib numbers. Diagonalization makes it easy to compute $A^n$.
     \item Diagonalizing this $2\times 2$: one e-val will always be 1, the other will always be less than 1.
     \item Both numbers in [an+1, an] will go to the same number in the limit of n to infinity since they're very close.
