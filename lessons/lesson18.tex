@@ -1,12 +1,74 @@
 \section{Lesson 18}
 
-\subsection{Memory Items (Informal)}
+\subsection{Notes}
 \begin{enumerate}
-    \item Scalar multiplication: $\alpha A = \alpha \, SDS^{-1}=S(\alpha D)S^{-1}$
-    \item Shifts: $A+\alpha I ~=~SDS^{-1}+\alpha SIS^{-1}~=~S(D+\alpha I)S^{-1}$
-    \item Powers: $A^p ~=~(SDS^{-1})^p~=~SD^pS^{-1}$
-    \begin{enumerate}
-        \item Applies to $A^-1$ as well!
-    \end{enumerate}
-    
+    \item Recall that the eigenvectors for unique eigenvalues are linearly independent.
+    \item The rational canonical form of diagonalization avoids using complex numbers. Recall that eigenvalues and their eigenvectors come in complex conjugate pairs:
+          \begin{align*}
+              \lambda_\pm    & =\alpha\pm\beta i       \\
+              \mathbf{v}_\pm & =\mathbf{x}+i\mathbf{y}
+          \end{align*}
+          The rational canonical form of the diagonalization of $A$ can be written as
+          \begin{align*}
+              A=\left[\begin{matrix}\mathbf{x} & \mathbf{y}\end{matrix}\right]\left[\begin{matrix}\alpha&\beta\cr-\beta&\alpha\end{matrix}\right][\begin{matrix}\mathbf{x} & \mathbf{y}\end{matrix}]^{-1}\text{.}
+          \end{align*}
+    \item \textbf{Scalar multiples}:
+          \begin{align*}
+              \alpha A = \alpha \, SDS^{-1}=S(\alpha D)S^{-1}
+          \end{align*}
+          That is, $\alpha A$ is also diagonalizable with the same eigenvectors but each eigenvalue scaled by $\alpha$.
+    \item \textbf{Shifts}:
+          \begin{align*}
+              A+\alpha I ~=~SDS^{-1}+\alpha SIS^{-1}~=~S(D+\alpha I)S^{-1}
+          \end{align*}
+          That is, $A+\alpha I$ is also diagonalizable with the same eigenvectors but $\alpha$ added to each eigenvalue.
+    \item \textbf{Powers}:
+          \begin{align*}
+              A^p ~=~(SDS^{-1})^p~=~SD^pS^{-1}
+          \end{align*}
+          That is, $A^p$ (when it is defined) is also diagonalizable with the same eigenvectors but each eigenvalue raised to $p$. This is valid for negative powers as well.
+    \item \textbf{Polynomial functions}:
+          \begin{align*}
+              p(A) = S\,p(D)\,S^{-1}
+          \end{align*}
+          That is, $p(A)$ is also diagonalizable with the same eigenvectors but $p$ applied to each eigenvalue.
+    \item If $\text{col}(A)\cap\text{nul}(A)$ is nontrivial, then $A$ is defective.
+    \item Diagonalization $A=SDS^-1$ can be thought of geometrically.
+          \begin{align*}
+              \begin{matrix}
+                          &                                   & 4               &                                 & \\
+                          &                                   &                 &                                 & \\
+                          & \mathbf{x}                        & \longrightarrow & A\mathbf{x}=S\mathbf{\beta}     & \\
+                  1\qquad & \downarrow                        &                 & \uparrow                        &
+                  \qquad 3\cr
+                          & \mathbf{\alpha}=S^{-1} \mathbf{x} & \longrightarrow & \mathbf{\beta}=D\mathbf{\alpha} & \\
+                          &                                   &                 &                                 & \\
+                          &                                   & 2                                                   \\
+              \end{matrix}
+          \end{align*}
+          \begin{align*}
+              1 & : \text{change of coordinates to the eigenbasis}        \\
+              2 & : \text{action of A with respect to the eigenbasis}     \\
+              3 & : \text{hange of coordinates to the standard basis}     \\
+              4 & : \text{action of A with respect to the standard basis}
+          \end{align*}
+        \item Two matrices $A_1$ and $A_2$ are \textbf{simultaneously diagonalizable} if
+        \begin{align*}
+            A_1 &= SD_1S^{-1}\text{,} \\
+            A_2 &= SD_2S^{-1}\text{.}
+        \end{align*}
+        That is, both matrices have the same eigenvectors but not necessarily the same eigenvalues.
+        \item Simultaneously diagonalizable matrices commute.
+        \item An \textbf{eigenspace} associated with the matrix $A$ is denoted by
+        \begin{align*}
+            E_\lambda(A)=\text{nul}(A-\lambda I)\text{.}
+        \end{align*}
+        \begin{enumerate}
+            \item Every eigenvector of $A$ with eigenvalue $\lambda$ is in $E_\lambda(A)$.
+            \item Every nonzero vector in $E_\lambda(A)$ is an eigenvector of $A$ with eigenvalue $\lambda$.
+            \item The intersection of eigenspaces corresponding to different eigenvalues is the trivial subspace.
+            \item If $A$ is a diagonalizable matrix, then the direct sum of its eigenspaces is $\mathbb{R}^n$.
+
+        \end{enumerate}
+
 \end{enumerate}
