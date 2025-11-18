@@ -68,7 +68,23 @@
             \item Every nonzero vector in $E_\lambda(A)$ is an eigenvector of $A$ with eigenvalue $\lambda$.
             \item The intersection of eigenspaces corresponding to different eigenvalues is the trivial subspace.
             \item If $A$ is a diagonalizable matrix, then the direct sum of its eigenspaces is $\mathbb{R}^n$.
-
         \end{enumerate}
+        \item (Follow Up Problem 18.10) Two diagonalizations of the same matrix must share the same eigenvalues and eigenspaces, but there is substantial freedom in choosing the eigenbasis. That is, for an $n\times n$ matrix $A$, there are $n$ matrices possible for $D$ (changing the order of the eigenvalues) but many more possible matrices $S$ (as long as $\text{col}(S)=E_\lambda(A)$), such that $A=SDS^{-1}$.
+        \item (Follow Up Problem 18.14) When the multiplicity of an eigenvalue is 2 or more, the square root of the diagonal matrix need not be diagonal, e.g.
+        \begin{align*}
+            \left[\begin{matrix}
+                0 & 1 \\
+                1 & 0
+            \end{matrix}\right]
+            \left[\begin{matrix}
+                0 & 1 \\
+                1 & 0
+            \end{matrix}\right]
+            =
+            \left[\begin{matrix}
+                1 & 0 \\
+                0 & 1
+            \end{matrix}\right]
+        \end{align*}
 
 \end{enumerate}
