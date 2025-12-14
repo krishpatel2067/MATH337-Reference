@@ -2,5 +2,36 @@
 
 \subsection{Notes}
 \begin{enumerate}
-    \item
+    \item Convert a second-order linear differential equation into a system of two first-order linear differential equations by creating a new variable. For example, the initial value problem
+    \begin{align*}
+        \left\{\qquad\begin{matrix}\ddot y &-& y&=&0\cr
+        &&y(0)&=&1\cr
+        &&\dot y(0)&=&0\cr
+        \end{matrix}\right.
+    \end{align*}
+    can be converted into the system using a new variable $v = \dot y$:
+    \begin{align*}
+        \left\{\qquad\begin{matrix}\dot v &=& y\cr
+        \dot y &=& v\cr
+        y(0)&=&1\cr
+        v(0)&=&0\cr
+        \end{matrix}\right.
+    \end{align*}
+    This can be written in matrix form as
+    \begin{align*}
+        \left[\begin{matrix}\dot{v}\\\dot{y}\end{matrix}\right] &= \left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right]\left[\begin{matrix}v\\y\end{matrix}\right]\cr
+        \left[\begin{matrix}v(0)\\y(0)\end{matrix}\right]&=\left[\begin{matrix}0\\1\end{matrix}\right]\text{,}
+    \end{align*}
+    where $A$ is the square matrix above.
+    \item When solving second-order linear differential equations, assume the form
+    \begin{align*}
+        \mathbf{x}(t) = e^{At} \mathbf{x}(0)\text{.}
+    \end{align*}
+    \item Raising $e$ to a matrix is simply raising $e$ to the power of the diagonal elements after diagonalizing the matrix:
+    \begin{align*}
+        A &= SDS^{-1}\\
+        e^A &= S\left[\begin{matrix}e^{t\lambda_1} & &\cr &\ddots & \cr & & e^{t\lambda_n}\end{matrix}\right]S^{-1}
+    \end{align*}
+    \item $e^O = I$, where $O$ is the zero matrix.
+    \item $e^{A+B} = e^A e^B$ if matrices $A$ and $B$ commute.
 \end{enumerate}
