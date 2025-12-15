@@ -1,0 +1,26 @@
+\section{Lesson 22}
+
+\subsection{Notes}
+\begin{enumerate}
+    \item Real symmetric matrices ($A^T = A$) are Hermitian symmetric ($A^H = A$).
+    \item All Hermitian symmetric matrices are diagonalizable.
+    \item All eigenvalues of Hermitian symmetric matrices are real.
+    \item All Hermitian symmetric matrices have an orthonormal eigenbasis.
+    \item Eigenvectors of Hermitian symmetric matrices corresponding to distinct eigenvalues are necessarily orthogonal.
+    \begin{enumerate}
+        \item Thus, Gram-Schmidt only needs to be applied once to the basis of eigenvectors corresponding to a repeated eigenvalue.
+    \end{enumerate}
+    \item For Hermitian symmetric matrices, the process is called \textbf{unitary diagonalization}, while for real symmetric matrices it is called \textbf{orthogonal diagonalization}.
+    \item Orthogonal diagonalization is represented by
+    \begin{align*}
+        A = UDU^T\text{,}
+    \end{align*}
+    where $U$ is an orthogonal matrix and $D$ is a diagonal matrix.
+    \begin{enumerate}
+        \item Diagonalize $A$ as $SDS^{-1}$.
+        \item $D$ remains the same.
+        \item The vectors in $S$ corresponding to repeated eigenvalues need to be orthogonalized by Gram-Schmidt and then normalized. The rest of the vectors corresponding to unique eigenvalues simply need to be normalized. The resulting matrix $U$ is then orthogonal.
+    \end{enumerate}
+    \item Real symmetric matrices can be written as a linear combination of rank one orthogonal projections. Geometrically, this means that the unit $n$-sphere defined by $u_\ell$ is streched in $n$ directions corresponding to each eigenvector by factors defined by the corresponding eigenvalue, creating an ellipsoid.
+    \item All normal matrices (defined as $AA^H = A^HA$) are unitary diagonalizable, not just Hermitian symmetric matrices.
+\end{enumerate}
