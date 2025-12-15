@@ -1,0 +1,28 @@
+\section{Lesson 23}
+
+\subsection{Notes}
+\begin{enumerate}
+    \item Single value decomposition (SVD) is a factorization of a real $m \times n$ matrix $A$ into
+    \begin{align*}
+        A = U\Sigma V^T\text{,}
+    \end{align*}
+    where
+    \begin{itemize}
+        \item $U$ is an $m \times m$ orthogonal matrix,
+        \item $\Sigma$ is an $m \times n$ "diagonal" matrix with non-negative real entries on the main diagonal in decreasing order (called the \textbf{singular values}), and
+        \item $V$ is an $n \times n$ orthogonal matrix.
+    \end{itemize}
+    \item For a symmetric matrix with positive eigenvalues, the SVD is the same as the orthogonal diagonalization with the eigenvalues arranged in decreasing order.
+    \item To find the SVD of a real $m\times n$ matrix $A$:
+    \begin{enumerate}
+        \item Compute the orthogonal diagonalization of $A^T A = VDV^T$ ($V$ is now found).
+        \item Square root the $r$ non-zero values of $D$ to find the $m\times n$ matrix $\Sigma$. If any eigenvalue is negative, simply apply the negative to the respective eigenvector.
+        \item Use
+        \begin{align*}
+            \mathbf{u}_\ell=\frac{1}{\sigma_\ell}\mathbf{A}\mathbf{v}_\ell
+        \end{align*}
+        for $\ell = 1, \ldots, r$ to find the first $r$ columns of $U$.
+        \item Find the remaining columns of $U$ by finding the basis for $\text{nul}(A^T)$. Use Gram-Schmidt to orthonormalize the basis.
+    \end{enumerate}
+    \item There is typically more than one SVD for a given matrix, but the singular values are shared by all of them.
+\end{enumerate}
