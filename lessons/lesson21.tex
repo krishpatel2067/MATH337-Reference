@@ -2,5 +2,24 @@
 
 \subsection{Notes}
 \begin{enumerate}
-    \item
+    \item QR factorization of a matrix $A$ involves finding a matrix $Q$ and $R$ such that $A = QR$.
+    \begin{enumerate}
+        \item Any $m \times n$ matrix $A$ can be factored as $A = QR$ where $Q$ is $m \times r$ with orthonormal columns and $R$ is $r \times n$ and upper trapazoidal, where $r$ is the rank of $A$.
+        \item If $A$ is $n \times n$ and the columns of $A$ are independent, then $Q$ is $n \times n$ and orthogonal and $R$ is $n \times n$ and upper triangular.
+        \item Upper triangular and upper trapazoidal are representations of proto-row echelon form.
+    \end{enumerate}
+    \item If $A = [\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_n]$ and $Q = [\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n]$, to find orthogonal bases, start with $\mathbf{v}_1 = \mathbf{u}_1$ and apply the equation
+    \begin{align*}
+        \mathbf{v}_{\ell+1} = \mathbf{u}_{\ell+1}~-~\sum_{j=1}^\ell \left(\frac{\mathbf{v}_j\cdot\mathbf{u}_{\ell+1}}{\mathbf{v}_j\cdot\mathbf{v}_j}\right) \mathbf{v}_j
+    \end{align*}
+    for $\ell = 1, 2, \ldots, n-1$.
+    \item If the columns of $A$ are dependent, then you can optionally extend the orthonormal basis to $\mathbb{R}^m$ by augmenting the original matrix with the identity matrix and continuing Gram-Schmidt until the missing bases are found. Start with $\mathbf{e}_1$ as the vector to orthonormalize, if that does not work, then try $\mathbf{e}_2$, and so on. Now, $A = QR$ where
+    \begin{enumerate}
+        \item $Q$ is $m \times m$ orthogonal matrix where the first $r$ columns form an orthonormal basis for $\text{col}(A)$ and the remaining $m - r$ columns form an orthonormal basis for $\text{nul}(A^T) = \text{col}(A)^\perp$ and
+        \item $R$ is a proto-row-echelon matrix ($R \sim \text{rref}(A)$).
+    \end{enumerate}
+    \item \textbf{Cholesky factorization} Every square matrix shares its Gram matrix with an upper triangular matrix:
+    \begin{align*}
+        G=A^TA=(QR)^T(QR)=R^TQ^TQR=R^TR
+    \end{align*}
 \end{enumerate}
