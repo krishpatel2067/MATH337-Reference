@@ -9,15 +9,15 @@
     where
     \begin{itemize}
         \item $U$ is an $m \times m$ orthogonal matrix,
-        \item $\Sigma$ is an $m \times n$ "diagonal" matrix with non-negative real entries on the main diagonal in decreasing order (called the \textbf{singular values}), and
+        \item $\Sigma$ is an $m \times n$ "diagonal" matrix with positive real entries on the main diagonal in decreasing order (these non-zero diagonal entries are called the \textbf{singular values}), and
         \item $V$ is an $n \times n$ orthogonal matrix.
     \end{itemize}
     \item For a symmetric matrix with positive eigenvalues, the SVD is the same as the orthogonal diagonalization with the eigenvalues arranged in decreasing order.
     \item To find the SVD of a real $m\times n$ matrix $A$:
     \begin{enumerate}
         \item Compute the orthogonal diagonalization of $A^T A = VDV^T$ ($V$ is now found).
-        \item Square root the $r$ non-zero values of $D$ to find the $m\times n$ matrix $\Sigma$. If any eigenvalue is negative, simply apply the negative to the respective eigenvector.
-        \item Use
+        \item Square root the $r$ non-zero values of $D$ to find the $m\times n$ matrix $\Sigma$. If any eigenvalue is negative, simply apply the negative to the respective eigenvector, but only in either $U$ or $V$ but not both.
+        \item Letting $r = \text{rank}(A)$ (or equivalently the number of singular values), use
         \begin{align*}
             \mathbf{u}_\ell=\frac{1}{\sigma_\ell}\mathbf{A}\mathbf{v}_\ell
         \end{align*}
