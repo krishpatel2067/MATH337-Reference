@@ -48,3 +48,5 @@ latexmkrc
 # Overleaf
 *.blg
 *.run.xml
+
+!main.pdf
